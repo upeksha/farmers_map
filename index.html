@@ -5,7 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drive for change</title>
     <style>
+      #map-container {
+        max-width: 400px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+      }
 
+      .location-active {
+        stroke: red !important;
+      }
+      circle.location-active {
+        fill: red !important;
+        animation: bounce 3s ease 3s infinite normal both;
+        position: fixed;
+        display: inline-block;
+      }
+      .location-deactive {
+        /* fill: red !important; */
+        stroke: red !important;
+      }
+
+      /* .start-location {
+        fill: #fff !important;
+        stroke: #f8b117 !important;
+      } */
+
+      .lab-1,
+      .lab-2,
+      .lab-3,
+      .lab-4,
+      .lab-5,
+      .lab-6,
+      .lab-7,
+      .lab-8,
+      .lab-9,
+      .lab-10,
+      .lab-11,
+      .lab-12,
+      .lab-13,
+      .lab-14,
+      .lab-15,
+      .lab-16,
+      .lab-17,
+      .lab-18,
+      .lab-19,
+      .lab-20,
+      .lab-21,
+      .lab-22,
+      .lab-23,
+      .lab-24 {
+        opacity: 0;
+        transition: opacity 0.3s; /* Optional: For smooth transition */
+      }
+
+      .d-none {
+        display: none;
+      }
+      @keyframes bounce {
+        0%,
+        50%,
+        100% {
+          opacity: 1;
+        }
+
+        25%,
+        75% {
+          opacity: 0;
+        }
+      }
+
+      
+      /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+        #map-container {
+        max-width: 500px;
+        height: 100%;
+      }
+      .heading.top{
+          font-size: 6.1rem;
+          line-height: 6rem;
+      }
+      .flex-block-4{
+    width: 100%;
+    padding-left: 20px;
+			}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+        #map-container {
+        max-width: 700px;
+        height: 100%;
+      }
+      .heading.top {
+    align-self: flex-end;
+    font-size: 8.3rem;
+    line-height: 7rem;
+}
+      .flex-block-4{
+    width: 520px;
+    padding: 0;
+			}
+}
     </style>
   </head>
 
@@ -1449,6 +1561,42 @@
           });
         });
       }
+
+      document.addEventListener("DOMContentLoaded", function() {
+    var isMouseDown = false;
+    var startPosX, startPosY;
+    var scrollStartX, scrollStartY;
+
+    var div = document.getElementById('map-container');
+
+    div.addEventListener('mousedown', function(e) {
+        isMouseDown = true;
+        startPosX = e.clientX;
+        startPosY = e.clientY;
+        scrollStartX = div.scrollLeft;
+        scrollStartY = div.scrollTop;
+    });
+
+    div.addEventListener('mousemove', function(e) {
+        if (!isMouseDown) return;
+
+        var dx = e.clientX - startPosX;
+        var dy = e.clientY - startPosY;
+
+        div.scrollLeft = scrollStartX - dx;
+        div.scrollTop = scrollStartY - dy;
+    });
+
+    div.addEventListener('mouseup', function() {
+        isMouseDown = false;
+    });
+
+    div.addEventListener('mouseleave', function() {
+        isMouseDown = false;
+    });
+});
+
+
     </script>
   </body>
 </html>
