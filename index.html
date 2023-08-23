@@ -141,6 +141,20 @@
         }
       }
     </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+    // Query for all active items and get the first one.
+    const activeItems = document.querySelectorAll('.map-wrapper .location-active');
+    const firstActiveItem = activeItems[0];
+
+    if (firstActiveItem) {
+        firstActiveItem.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }
+});
+    </script>
   </head>
 
   <body>
@@ -1588,18 +1602,7 @@
 
 
 
-window.addEventListener('DOMContentLoaded', (event) => {
-    // Query for all active items and get the first one.
-    const activeItems = document.querySelectorAll('.map-wrapper .location-active');
-    const firstActiveItem = activeItems[0];
 
-    if (firstActiveItem) {
-        firstActiveItem.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-        });
-    }
-});
 
 
     </script>
