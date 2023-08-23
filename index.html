@@ -12,6 +12,7 @@
         position: relative;
         margin: 0 auto;
         overflow: auto;
+        zoom: 200%;
       }
 
       /* Hide scrollbar for Chrome, Safari and Opera */
@@ -1609,7 +1610,18 @@
       }
 
  
+      window.addEventListener('DOMContentLoaded', (event) => {
+    // Query for all active items and get the first one.
+    const activeItems = document.querySelectorAll('.scrollable .location-active');
+    const firstActiveItem = activeItems[0];
 
+    if (firstActiveItem) {
+        firstActiveItem.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+        });
+    }
+});
 
 
     </script>
