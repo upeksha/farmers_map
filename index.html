@@ -1610,7 +1610,7 @@
 
  
 
-    // Query for all active items and get the first one.
+function scrollToFirstActiveItem() {
     const activeItems = document.querySelectorAll('.scrollable .location-active');
     const firstActiveItem = activeItems[0];
 
@@ -1620,6 +1620,11 @@
             block: 'center' 
         });
     }
+}
+
+// Call the function whenever you want to scroll to the first active item
+scrollToFirstActiveItem();
+
 
 
 
