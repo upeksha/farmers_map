@@ -1610,14 +1610,20 @@
 
  
 
-function scrollToFirstActiveItem() {
-    const activeItems = document.querySelectorAll('.scrollable .location-active');
+   function scrollToFirstActiveItem() {
+    const scrollableDiv = document.querySelector('.scrollable');
+    if (!scrollableDiv) {
+        return; // Exit if the scrollable div is not found
+    }
+    
+    const activeItems = scrollableDiv.querySelectorAll('.location-active');
     const firstActiveItem = activeItems[0];
 
     if (firstActiveItem) {
         firstActiveItem.scrollIntoView({ 
             behavior: 'smooth', 
-            block: 'center' 
+            block: 'center',
+            container: '.scrollable'// Specify the container element
         });
     }
 }
