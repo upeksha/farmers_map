@@ -1453,7 +1453,29 @@
 
  
 
-   function scrollToFirstActiveItem() {
+//    function scrollToFirstActiveItem() {
+//     const scrollableDiv = document.querySelector('.scrollable');
+//     if (!scrollableDiv) {
+//         return; // Exit if the scrollable div is not found
+//     }
+    
+//     const activeItems = scrollableDiv.querySelectorAll('.location-active');
+//     const firstActiveItem = activeItems[0];
+
+//     if (firstActiveItem) {
+//         firstActiveItem.scrollIntoView({ 
+//             behavior: 'smooth', 
+//             block: 'center',
+//             container: '.scrollable'// Specify the container element
+//         });
+//     }
+// }
+
+// // Call the function whenever you want to scroll to the first active item
+// scrollToFirstActiveItem();
+
+
+      function scrollToFirstActiveItem() {
     const scrollableDiv = document.querySelector('.scrollable');
     if (!scrollableDiv) {
         return; // Exit if the scrollable div is not found
@@ -1465,8 +1487,8 @@
     if (firstActiveItem) {
         firstActiveItem.scrollIntoView({ 
             behavior: 'smooth', 
-            block: 'center',
-            container: '.scrollable'// Specify the container element
+            block: 'center', // Center vertically
+            inline: 'center' // Center horizontally
         });
     }
 }
